@@ -1,0 +1,217 @@
+:root {
+  --cor-fundo: #f4f6f8;
+  --cor-superficie: #ffffff;
+  --cor-superficie-coluna: #ebedf0;
+  --cor-texto: #111827;
+  --cor-texto-secundario: #4b5563;
+  --cor-borda: #d1d5db;
+  --cor-foco: #0284c7;
+
+  --cor-status-afazer: #dc2626;
+  --cor-status-andamento: #d97706;
+  --cor-status-revisao: #2563eb;
+  --cor-status-concluido: #16a34a;
+
+  --espaco-sm: 0.5rem;
+  --espaco-md: 1rem;
+  --espaco-lg: 1.5rem;
+
+  --raio-canto: 0.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.5;
+  padding: var(--espaco-md);
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw + 0.5rem, 2.25rem);
+  margin-bottom: var(--espaco-md);
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+:focus-visible {
+  outline: 3px solid var(--cor-foco);
+  outline-offset: 2px;
+}
+
+header {
+  margin-bottom: var(--espaco-lg);
+}
+
+section[aria-labelledby="titulo-filtros"] {
+  background-color: var(--cor-superficie);
+  padding: var(--espaco-md);
+  border-radius: var(--raio-canto);
+  border: 1px solid var(--cor-borda);
+  margin-bottom: var(--espaco-lg);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-md);
+  margin-top: var(--espaco-sm);
+}
+
+fieldset {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-canto);
+  padding: var(--espaco-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+}
+
+legend {
+  padding: 0 0.25rem;
+  font-weight: 600;
+}
+
+input[type="search"],
+select,
+button,
+input[type="radio"] {
+  min-height: 1.75rem;
+  font-size: 1rem;
+}
+
+input[type="search"],
+select,
+button {
+  padding: var(--espaco-sm);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-canto);
+  width: 100%;
+}
+
+button {
+  background-color: var(--cor-texto);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 2.5rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-lg);
+}
+
+main section {
+  background-color: var(--cor-superficie-coluna);
+  border-radius: var(--raio-canto);
+  padding: var(--espaco-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-md);
+  border-top: 5px solid var(--cor-borda);
+}
+
+section[aria-labelledby="status-afazer-titulo"] { border-top-color: var(--cor-status-afazer); }
+section[aria-labelledby="status-andamento-titulo"] { border-top-color: var(--cor-status-andamento); }
+section[aria-labelledby="status-revisao-titulo"] { border-top-color: var(--cor-status-revisao); }
+section[aria-labelledby="status-concluido-titulo"] { border-top-color: var(--cor-status-concluido); }
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-md);
+}
+
+article {
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-canto);
+  padding: var(--espaco-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+  min-width: 0;
+}
+
+article h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  color: var(--cor-texto);
+}
+
+article p {
+  font-size: 0.875rem;
+  color: var(--cor-texto-secundario);
+}
+
+article p:has(time) {
+  margin-top: auto;
+  padding-top: var(--espaco-sm);
+  border-top: 1px dashed var(--cor-borda);
+}
+
+/* PONTO DE QUEBRA: 640px - Em telas médias os filtros e as colunas de tarefas ficam visíveis em 2 colunas */
+@media (min-width: 640px) {
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  fieldset {
+    grid-column: span 2;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  button {
+    grid-column: span 2;
+  }
+
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* PONTO DE QUEBRA: 1024px - Em telas grandes as 4 colunas do quadro e os filtros ficam organizados em linha */
+@media (min-width: 1024px) {
+  form {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  form p,
+  form fieldset {
+    flex: 1;
+  }
+
+  button {
+    width: auto;
+    padding-left: var(--espaco-lg);
+    padding-right: var(--espaco-lg);
+  }
+
+  main {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
