@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas Acadêmicas</title>
+</head>
+<body>
+    
+    <header>
+        <h1>Gerenciador de Tarefas Acadêmicas</h1>
+    </header>
+
+    <section aria-labelledby="titulo-filtros">
+        <h2 id="titulo-filtros">Filtros e Busca</h2>
+        <form role="search">
+            <p>
+                <label for="busca-titulo">Buscar por título:</label>
+                <input type="search" id="busca-titulo" name="busca" placeholder="Ex: Estudar para prova">
+            </p>
+            <fieldset>
+                <legend>Filtrar por Status</legend>
+                <p>
+                    <label for="filtro-status-todos">
+                        <input type="radio" id="filtro-status-todos" name="status" value="todos" checked>
+                        Todos
+                    </label>
+                </p>
+                <p>
+                    <label for="filtro-status-afazer">
+                        <input type="radio" id="filtro-status-afazer" name="status" value="afazer">
+                        A Fazer
+                    </label>
+                </p>
+                <p>
+                    <label for="filtro-status-andamento">
+                        <input type="radio" id="filtro-status-andamento" name="status" value="andamento">
+                        Em Andamento
+                    </label>
+                </p>
+                <p>
+                    <label for="filtro-status-revisao">
+                        <input type="radio" id="filtro-status-revisao" name="status" value="revisao">
+                        Em Revisão
+                    </label>
+                </p>
+                <p>
+                    <label for="filtro-status-concluido">
+                        <input type="radio" id="filtro-status-concluido" name="status" value="concluido">
+                        Concluída
+                    </label>
+                </p>
+            </fieldset>
+
+            <!-- Filtro por Prioridade -->
+            <p>
+                <label for="filtro-prioridade">Filtrar por Prioridade:</label>
+                <select id="filtro-prioridade" name="prioridade">
+                    <option value="todas">Todas as Prioridades</option>
+                    <option value="baixa">Baixa</option>
+                    <option value="media">Média</option>
+                    <option value="alta">Alta</option>
+                </select>
+            </p>
+
+            <button type="submit">Aplicar Filtros</button>
+        </form>
+    </section>
+
+    <!-- 3. Visão de Quadro (main único da aplicação) -->
+    <main>
+        <!-- Coluna 1: A Fazer -->
+        <section aria-labelledby="status-afazer-titulo">
+            <h2 id="status-afazer-titulo">A Fazer</h2>
+            <ul>
+                <li>
+                    <article>
+                        <h3>Mapeamento de Requisitos para Sistema Web</h3>
+                        <p><strong>Projeto:</strong> Engenharia de Software I</p>
+                        <p><strong>Responsável:</strong> Paulo Cesar</p>
+                        <p><strong>Prazo:</strong> <time datetime="2026-08-28">28/08/2026</time></p>
+                        <p><strong>Prioridade:</strong> Alta</p>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h3>Modelagem ER de Banco de Dados</h3>
+                        <p><strong>Projeto:</strong> Banco de Dados Avançado</p>
+                        <p><strong>Responsável:</strong> Maria Oliveira</p>
+                        <p><strong>Prazo:</strong> <time datetime="2026-08-30">30/08/2026</time></p>
+                        <p><strong>Prioridade:</strong> Média</p>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Coluna 2: Em Andamento -->
+        <section aria-labelledby="status-andamento-titulo">
+            <h2 id="status-andamento-titulo">Em Andamento</h2>
+            <ul>
+                <li>
+                    <article>
+                        <h3>Criação do Protótipo de Alta Fidelidade</h3>
+                        <p><strong>Projeto:</strong> Design de Interface (UX/UI)</p>
+                        <p><strong>Responsável:</strong> Paulo Cesar</p>
+                        <p><strong>Prazo:</strong> <time datetime="2026-08-27">27/08/2026</time></p>
+                        <p><strong>Prioridade:</strong> Alta</p>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h3>Resolução do Questionário Q1</h3>
+                        <p><strong>Projeto:</strong> Desenvolvimento Frontend</p>
+                        <p><strong>Responsável:</strong> Paulo Cesar</p>
+                        <p><strong>Prazo:</strong> <time datetime="2026-08-26">26/08/2026</time></p>
+                        <p><strong>Prioridade:</strong> Média</p>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Coluna 3: Em Revisão -->
+        <section aria-labelledby="status-revisao-titulo">
+            <h2 id="status-revisao-titulo">Em Revisão</h2>
+            <ul>
+                <li>
+                    <article>
+                        <h3>Validação Semântica do HTML com W3C</h3>
+                        <p><strong>Projeto:</strong> Desenvolvimento Frontend</p>
+                        <p><strong>Responsável:</strong> João Santos</p>
+                        <p><strong>Prazo:</strong> <time datetime="2026-08-25">25/08/2026</time></p>
+                        <p><strong>Prioridade:</strong> Baixa</p>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h3>Revisão de Código das Triggers SQL</h3>
+                        <p><strong>Projeto:</strong> Banco de Dados Avançado</p>
+                        <p><strong>Responsável:</strong> Ana Costa</p>
+                        <p><strong>Prazo:</strong> <time datetime="2026-08-29">29/08/2026</time></p>
+                        <p><strong>Prioridade:</strong> Alta</p>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Coluna 4: Concluída -->
+        <section aria-labelledby="status-concluido-titulo">
+            <h2 id="status-concluido-titulo">Concluída</h2>
+            <ul>
+                <li>
+                    <article>
+                        <h3>Configuração do Repositório Git</h3>
+                        <p><strong>Projeto:</strong> Laboratório de Programação</p>
+                        <p><strong>Responsável:</strong> Paulo Cesar</p>
+                        <p><strong>Prazo:</strong> <time datetime="2026-08-20">20/08/2026</time></p>
+                        <p><strong>Prioridade:</strong> Baixa</p>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h3>Leitura da Documentação da E1</h3>
+                        <p><strong>Projeto:</strong> Desenvolvimento Frontend</p>
+                        <p><strong>Responsável:</strong> Paulo Cesar</p>
+                        <p><strong>Prazo:</strong> <time datetime="2026-08-22">22/08/2026</time></p>
+                        <p><strong>Prioridade:</strong> Média</p>
+                    </article>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por <strong>Paulo Cesar</strong> — Disciplina: Desenvolvimento Frontend (2026.2)</p>
+    </footer>
+
+</body>
+</html>
