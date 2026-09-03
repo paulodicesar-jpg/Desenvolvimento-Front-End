@@ -1,21 +1,25 @@
 :root {
-  --cor-fundo: #f4f6f8;
-  --cor-superficie: #ffffff;
-  --cor-superficie-coluna: #ebedf0;
-  --cor-texto: #111827;
-  --cor-texto-secundario: #4b5563;
-  --cor-borda: #d1d5db;
-  --cor-foco: #0284c7;
+  /* Cores de Superfície, Texto e Borda - Inspiração Steam Dark Mode */
+  --cor-fundo: #171a21;              /* Fundo escuro oficial Steam */
+  --cor-superficie: #1b2838;         /* Cartões/Formulários */
+  --cor-superficie-coluna: #2a475e;  /* Colunas do Kanban */
+  --cor-texto: #f3f3f3;              /* Texto principal claro */
+  --cor-texto-secundario: #c6d4df;   /* Texto secundário azulado */
+  --cor-borda: #316282;              /* Borda sutil */
+  --cor-foco: #66c0f4;               /* Azul brilhante de destaque */
 
-  --cor-status-afazer: #dc2626;
-  --cor-status-andamento: #d97706;
-  --cor-status-revisao: #2563eb;
-  --cor-status-concluido: #16a34a;
+  /* Cores de Status adaptadas à paleta Steam */
+  --cor-status-afazer: #ff4655;      /* Vermelho vibrante */
+  --cor-status-andamento: #f7a01d;   /* Laranja Steam */
+  --cor-status-revisao: #66c0f4;     /* Azul Ciano Steam */
+  --cor-status-concluido: #5c7e10;   /* Verde Conquista Steam */
 
+  /* Escala de Espaçamento */
   --espaco-sm: 0.5rem;
   --espaco-md: 1rem;
   --espaco-lg: 1.5rem;
 
+  /* Raio de Canto */
   --raio-canto: 0.5rem;
 }
 
@@ -39,10 +43,13 @@ body {
 h1 {
   font-size: clamp(1.5rem, 4vw + 0.5rem, 2.25rem);
   margin-bottom: var(--espaco-md);
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
   font-size: 1.25rem;
+  color: #ffffff;
 }
 
 h3 {
@@ -58,41 +65,71 @@ header {
   margin-bottom: var(--espaco-lg);
 }
 
+/* ==========================================================================
+   SEÇÃO DE FILTROS E BUSCA (Tema Steam)
+   ========================================================================== */
 section[aria-labelledby="titulo-filtros"] {
-  background-color: var(--cor-superficie);
+  background: linear-gradient(135deg, #1b2838 0%, #171a21 100%);
   padding: var(--espaco-md);
   border-radius: var(--raio-canto);
   border: 1px solid var(--cor-borda);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   margin-bottom: var(--espaco-lg);
+}
+
+section[aria-labelledby="titulo-filtros"] h2 {
+  margin-bottom: var(--espaco-sm);
 }
 
 form {
   display: flex;
   flex-direction: column;
   gap: var(--espaco-md);
-  margin-top: var(--espaco-sm);
+}
+
+form > p {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  justify-content: flex-end;
+}
+
+form label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--cor-texto-secundario);
 }
 
 fieldset {
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio-canto);
-  padding: var(--espaco-md);
+  padding: var(--espaco-sm) var(--espaco-md);
   display: flex;
   flex-direction: column;
   gap: var(--espaco-sm);
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 legend {
   padding: 0 0.25rem;
   font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--cor-texto-secundario);
 }
 
-input[type="search"],
-select,
-button,
-input[type="radio"] {
-  min-height: 1.75rem;
-  font-size: 1rem;
+fieldset p {
+  display: flex;
+  align-items: center;
+}
+
+fieldset label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 400;
+  color: var(--cor-texto);
+  cursor: pointer;
 }
 
 input[type="search"],
@@ -102,16 +139,37 @@ button {
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio-canto);
   width: 100%;
+  font-size: 0.95rem;
+  background-color: #0e141d;
+  color: var(--cor-texto);
+  height: 2.625rem;
 }
 
+input[type="search"]:focus,
+select:focus {
+  border-color: var(--cor-foco);
+}
+
+/* Botão estilo gradiente Steam */
 button {
-  background-color: var(--cor-texto);
+  background: linear-gradient(90deg, #47bfff 0%, #1a9fff 100%);
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  min-height: 2.5rem;
+  border: none;
+  transition: all 0.2s ease;
+  align-self: flex-end;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
+button:hover {
+  background: linear-gradient(90deg, #66c0f4 0%, #21a4ff 100%);
+  box-shadow: 0 0 10px rgba(102, 192, 244, 0.5);
+}
+
+/* ==========================================================================
+   QUADRO DE TAREFAS E CARTÕES COM EFEITO HOVER
+   ========================================================================== */
 main {
   display: grid;
   grid-template-columns: 1fr;
@@ -119,13 +177,14 @@ main {
 }
 
 main section {
-  background-color: var(--cor-superficie-coluna);
+  background-color: rgba(42, 71, 94, 0.4);
   border-radius: var(--raio-canto);
   padding: var(--espaco-md);
   display: flex;
   flex-direction: column;
   gap: var(--espaco-md);
-  border-top: 5px solid var(--cor-borda);
+  border-top: 4px solid var(--cor-borda);
+  backdrop-filter: blur(4px);
 }
 
 section[aria-labelledby="status-afazer-titulo"] { border-top-color: var(--cor-status-afazer); }
@@ -140,6 +199,7 @@ ul {
   gap: var(--espaco-md);
 }
 
+/* Cartões com interatividade */
 article {
   background-color: var(--cor-superficie);
   border: 1px solid var(--cor-borda);
@@ -149,6 +209,18 @@ article {
   flex-direction: column;
   gap: var(--espaco-sm);
   min-width: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              box-shadow 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.25s ease;
+  cursor: pointer;
+}
+
+/* Efeito Hover nos Cartões */
+article:hover {
+  transform: translateY(-4px);
+  border-color: var(--cor-foco);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 12px rgba(102, 192, 244, 0.25);
 }
 
 article h3 {
@@ -156,7 +228,7 @@ article h3 {
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
-  color: var(--cor-texto);
+  color: #ffffff;
 }
 
 article p {
@@ -167,20 +239,29 @@ article p {
 article p:has(time) {
   margin-top: auto;
   padding-top: var(--espaco-sm);
-  border-top: 1px dashed var(--cor-borda);
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
 }
 
-/* PONTO DE QUEBRA: 640px - Em telas médias os filtros e as colunas de tarefas ficam visíveis em 2 colunas */
+footer {
+  margin-top: var(--espaco-lg);
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--cor-texto-secundario);
+}
+
+/* PONTO DE QUEBRA: 640px */
 @media (min-width: 640px) {
   form {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: end;
   }
 
   fieldset {
     grid-column: span 2;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: var(--espaco-md);
   }
 
   button {
@@ -192,24 +273,39 @@ article p:has(time) {
   }
 }
 
-/* PONTO DE QUEBRA: 1024px - Em telas grandes as 4 colunas do quadro e os filtros ficam organizados em linha */
+/* PONTO DE QUEBRA: 1024px */
 @media (min-width: 1024px) {
   form {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr 1.2fr;
+    gap: var(--espaco-md);
+    align-items: end;
   }
 
-  form p,
-  form fieldset {
-    flex: 1;
+  fieldset {
+    grid-column: span 1;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: var(--espaco-sm);
+    height: 2.625rem;
   }
 
   button {
-    width: auto;
-    padding-left: var(--espaco-lg);
-    padding-right: var(--espaco-lg);
+    grid-column: span 1;
+    width: 100%;
   }
+
+  .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
   main {
     grid-template-columns: repeat(4, 1fr);

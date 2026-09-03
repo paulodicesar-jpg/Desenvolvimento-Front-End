@@ -1,0 +1,76 @@
+{
+  "tarefas": [
+    {
+      "id": "1",
+      "titulo": "Mapeamento de Requisitos para Sistema Web",
+      "projeto": "Engenharia de Software I",
+      "responsavel": "Paulo Cesar",
+      "prazo": "2026-08-28",
+      "prioridade": "Alta",
+      "status": "afazer"
+    },
+    {
+      "id": "2",
+      "titulo": "Modelagem ER de Banco de Dados",
+      "projeto": "Banco de Dados Avançado",
+      "responsavel": "Maria Oliveira",
+      "prazo": "2026-08-30",
+      "prioridade": "Média",
+      "status": "afazer"
+    },
+    {
+      "id": "3",
+      "titulo": "Criação do Protótipo de Alta Fidelidade",
+      "projeto": "Design de Interface (UX/UI)",
+      "responsavel": "Paulo Cesar",
+      "prazo": "2026-08-27",
+      "prioridade": "Alta",
+      "status": "andamento"
+    },
+    {
+      "id": "4",
+      "titulo": "Resolução do Questionário Q1",
+      "projeto": "Desenvolvimento Frontend",
+      "responsavel": "Paulo Cesar",
+      "prazo": "2026-08-26",
+      "prioridade": "Média",
+      "status": "andamento"
+    },
+    {
+      "id": "5",
+      "titulo": "Validação Semântica do HTML com W3C",
+      "projeto": "Desenvolvimento Frontend",
+      "responsavel": "João Santos",
+      "prazo": "2026-08-25",
+      "prioridade": "Baixa",
+      "status": "revisao"
+    },
+    {
+      "id": "6",
+      "titulo": "Revisão de Código das Triggers SQL",
+      "projeto": "Banco de Dados Avançado",
+      "responsavel": "Ana Costa",
+      "prazo": "2026-08-29",
+      "prioridade": "Alta",
+      "status": "revisao"
+    },
+    {
+      "id": "7",
+      "titulo": "Configuração do Repositório Git",
+      "projeto": "Laboratório de Programação",
+      "responsavel": "Paulo Cesar",
+      "prazo": "2026-08-20",
+      "prioridade": "Baixa",
+      "status": "concluido"
+    },
+    {
+      "id": "8",
+      "titulo": "Leitura da Documentação da E1",
+      "projeto": "Desenvolvimento Frontend",
+      "responsavel": "Paulo Cesar",
+      "prazo": "2026-08-22",
+      "prioridade": "Média",
+      "status": "concluido"
+    }
+  ]
+}

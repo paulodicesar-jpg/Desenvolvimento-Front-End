@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Tarefas Acadêmicas</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
@@ -68,112 +68,17 @@
         </form>
     </section>
 
-    <!-- 3. Visão de Quadro (main único da aplicação) -->
-    <main>
-        <!-- Coluna 1: A Fazer -->
-        <section aria-labelledby="status-afazer-titulo">
-            <h2 id="status-afazer-titulo">A Fazer</h2>
-            <ul>
-                <li>
-                    <article>
-                        <h3>Mapeamento de Requisitos para Sistema Web</h3>
-                        <p><strong>Projeto:</strong> Engenharia de Software I</p>
-                        <p><strong>Responsável:</strong> Paulo Cesar</p>
-                        <p><strong>Prazo:</strong> <time datetime="2026-08-28">28/08/2026</time></p>
-                        <p><strong>Prioridade:</strong> Alta</p>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <h3>Modelagem ER de Banco de Dados</h3>
-                        <p><strong>Projeto:</strong> Banco de Dados Avançado</p>
-                        <p><strong>Responsável:</strong> Maria Oliveira</p>
-                        <p><strong>Prazo:</strong> <time datetime="2026-08-30">30/08/2026</time></p>
-                        <p><strong>Prioridade:</strong> Média</p>
-                    </article>
-                </li>
-            </ul>
-        </section>
+    <!-- Região viva para acessibilidade (DEVE nascer vazia na marcação inicial) -->
+    <div id="status-regiao" role="status" aria-live="polite" class="sr-only"></div>
 
-        <!-- Coluna 2: Em Andamento -->
-        <section aria-labelledby="status-andamento-titulo">
-            <h2 id="status-andamento-titulo">Em Andamento</h2>
-            <ul>
-                <li>
-                    <article>
-                        <h3>Criação do Protótipo de Alta Fidelidade</h3>
-                        <p><strong>Projeto:</strong> Design de Interface (UX/UI)</p>
-                        <p><strong>Responsável:</strong> Paulo Cesar</p>
-                        <p><strong>Prazo:</strong> <time datetime="2026-08-27">27/08/2026</time></p>
-                        <p><strong>Prioridade:</strong> Alta</p>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <h3>Resolução do Questionário Q1</h3>
-                        <p><strong>Projeto:</strong> Desenvolvimento Frontend</p>
-                        <p><strong>Responsável:</strong> Paulo Cesar</p>
-                        <p><strong>Prazo:</strong> <time datetime="2026-08-26">26/08/2026</time></p>
-                        <p><strong>Prioridade:</strong> Média</p>
-                    </article>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Coluna 3: Em Revisão -->
-        <section aria-labelledby="status-revisao-titulo">
-            <h2 id="status-revisao-titulo">Em Revisão</h2>
-            <ul>
-                <li>
-                    <article>
-                        <h3>Validação Semântica do HTML com W3C</h3>
-                        <p><strong>Projeto:</strong> Desenvolvimento Frontend</p>
-                        <p><strong>Responsável:</strong> João Santos</p>
-                        <p><strong>Prazo:</strong> <time datetime="2026-08-25">25/08/2026</time></p>
-                        <p><strong>Prioridade:</strong> Baixa</p>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <h3>Revisão de Código das Triggers SQL</h3>
-                        <p><strong>Projeto:</strong> Banco de Dados Avançado</p>
-                        <p><strong>Responsável:</strong> Ana Costa</p>
-                        <p><strong>Prazo:</strong> <time datetime="2026-08-29">29/08/2026</time></p>
-                        <p><strong>Prioridade:</strong> Alta</p>
-                    </article>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Coluna 4: Concluída -->
-        <section aria-labelledby="status-concluido-titulo">
-            <h2 id="status-concluido-titulo">Concluída</h2>
-            <ul>
-                <li>
-                    <article>
-                        <h3>Configuração do Repositório Git</h3>
-                        <p><strong>Projeto:</strong> Laboratório de Programação</p>
-                        <p><strong>Responsável:</strong> Paulo Cesar</p>
-                        <p><strong>Prazo:</strong> <time datetime="2026-08-20">20/08/2026</time></p>
-                        <p><strong>Prioridade:</strong> Baixa</p>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <h3>Leitura da Documentação da E1</h3>
-                        <p><strong>Projeto:</strong> Desenvolvimento Frontend</p>
-                        <p><strong>Responsável:</strong> Paulo Cesar</p>
-                        <p><strong>Prazo:</strong> <time datetime="2026-08-22">22/08/2026</time></p>
-                        <p><strong>Prioridade:</strong> Média</p>
-                    </article>
-                </li>
-            </ul>
-        </section>
-    </main>
+    <!-- O main DEVE nascer vazio no HTML; o JS irá preenchê-lo dinamicamente -->
+    <main></main>
 
     <footer>
         <p>Desenvolvido por <strong>Paulo Cesar</strong> — Disciplina: Desenvolvimento Frontend (2026.2)</p>
     </footer>
 
+    <!-- Script principal como Módulo ES6 -->
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
